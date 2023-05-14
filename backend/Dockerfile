@@ -8,11 +8,11 @@ RUN apk add --no-cache \
 
 WORKDIR /app
 
-COPY go.mod go.sum ./
+COPY /backend/go.mod /backend/go.sum ./
 
 RUN go mod download && go mod verify
 
-COPY *.go ./
+COPY /backend/*.go ./
 
 RUN go build -o pb-build
 

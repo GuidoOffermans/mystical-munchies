@@ -16,6 +16,6 @@
 # vendor/
 
 **/pb_data
-fly.toml
+../fly.toml
 
 client/
