@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for mystical-munchies on 2023-05-13T17:44:53+02:00
+# fly.toml app configuration file generated for mystical-munchies on 2023-05-14T14:34:18+02:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -11,9 +11,9 @@ kill_timeout = "5s"
 [build]
   dockerfile = "backend/Dockerfile"
 
-[[mounts]]
+[mounts]
   source = "pb_data"
-  destination = "/pb/pb_data"
+  destination = "/app/pb_data"
 
 [[services]]
   protocol = "tcp"
