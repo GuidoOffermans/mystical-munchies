@@ -2,11 +2,11 @@
   import { currentUser } from "$lib/pocketbase";
   import { redirect } from "@sveltejs/kit";
 
-  if (!$currentUser) {
-    console.log(currentUser);
-    console.log("redirecting to login from error.svelte");
-    throw redirect(303, "/login");
-  }
+  // if (!$currentUser) {
+  //   console.log(currentUser);
+  //   console.log("redirecting to login from error.svelte");
+  //   throw redirect(303, "/login");
+  // }
 </script>
 
 <main
