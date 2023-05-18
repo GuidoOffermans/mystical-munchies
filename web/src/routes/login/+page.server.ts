@@ -20,6 +20,7 @@ export const actions = {
 		try {
 			await locals.pb.collection('users').authWithPassword(data.email, data.password);
 		} catch (error) {
+			console.log(error);
 			throw error;
 		}
 
