@@ -9,7 +9,7 @@ export const handle = (async ({ event, resolve }) => {
 	if (building) {
 		return resolve(event); // bailing here allows the 404 page to build
 	}
-	
+
 	event.locals.pb = pb;
 	event.locals.pb.authStore.loadFromCookie(event.request.headers.get('cookie') || '');
 
@@ -24,7 +24,6 @@ export const handle = (async ({ event, resolve }) => {
 	}
 
 	event.locals.user = structuredClone(pb.authStore.model);
-	console.log(event.locals.user);
 
 	if (!publicPaths.includes(event.url.pathname) && !event.locals.user) {
 		throw redirect(303, '/login');
