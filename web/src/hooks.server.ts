@@ -1,5 +1,8 @@
 import type { Handle } from '@sveltejs/kit';
+import { redirect } from '@sveltejs/kit';
 import { pb } from '$lib/pocketbase';
+
+const publicPaths = ['/login', '/register'];
 
 export const handle = (async ({ event, resolve }) => {
 	event.locals.pb = pb;
@@ -7,15 +10,20 @@ export const handle = (async ({ event, resolve }) => {
 
 	try {
 		// get an up-to-date auth store state by verifying and refreshing the loaded auth model (if any)
-		event.locals.pb.authStore.isValid && await event.locals.pb.collection('users').authRefresh();
-
+		event.locals.pb.authStore.isValid &&
+			(await event.locals.pb.collection('users').authRefresh());
 	} catch (_) {
-		console.log(event)
+		console.log(event);
 		// clear the auth store on failed refresh
 		event.locals.pb.authStore.clear();
 	}
 
 	event.locals.user = structuredClone(pb.authStore.model);
+	console.log(event.locals.user);
+
+	if (!publicPaths.includes(event.url.pathname) && !event.locals.user) {
+		throw redirect(303, '/login');
+	}
 
 	const response = await resolve(event);
 
