@@ -5,9 +5,9 @@
 
   storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
 
-  const popupCombobox: PopupSettings = {
+  const profilePopup: PopupSettings = {
     event: "focus-click",
-    target: "popupCombobox",
+    target: "profilePopup",
     placement: "bottom",
     closeQuery: ".listbox-item"
   };
@@ -54,7 +54,7 @@
       id="user-menu-button"
       aria-expanded="false"
       aria-haspopup="true"
-      use:popup={popupCombobox}
+      use:popup={profilePopup}
     >
       <span class="sr-only">Open user menu</span>
       <Avatar
@@ -84,8 +84,8 @@
 							</span>
     </button>
     <nav
-      data-popup="popupCombobox"
-      class="list-nav absolute right-0 top-0 z-10 mt-2.5 w-32 bg-surface-100-800-token origin-top-right rounded-md py-2"
+      data-popup="profilePopup"
+      class="card w-32 shadow-xl py-2 bg-surface-50-900-token mt-1"
       role="menu"
       aria-orientation="vertical"
       aria-labelledby="user-menu-button"
@@ -94,22 +94,28 @@
       <ul>
         <li>
           <a
-            href="/app/profile"
-            class="block px-3 py-1 text-sm leading-6"
+            href="/profile"
+            class="block px-3 py-1 text-sm leading-6 text-center"
             role="menuitem"
             tabindex="-1"
             id="user-menu-item-0">Your profile</a
           >
         </li>
+
         <li>
           <form method="POST" action="/logout">
-            <button class="block px-3 py-1 text-sm leading-6 w-full" tabindex="-1" role="menuitem">Sign out
+            <button
+              class="block px-3 py-1 text-sm leading-6 w-full"
+              tabindex="-1"
+              role="menuitem"
+            >
+              Sign out
             </button>
           </form>
         </li>
       </ul>
 
-      <div class="arrow bg-surface-100-800-token"></div>
+      <div class="arrow bg-surface-50-900-token"></div>
     </nav>
   </div>
 
