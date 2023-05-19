@@ -3,7 +3,7 @@ import { redirect } from '@sveltejs/kit';
 import { pb } from '$lib/pocketbase';
 import { building } from '$app/environment';
 
-const publicPaths = ['/login', '/register', '/'];
+const publicPaths = ['/login', '/register'];
 
 export const handle = (async ({ event, resolve }) => {
 	if (building) {
