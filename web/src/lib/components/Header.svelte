@@ -1,15 +1,12 @@
 <script lang="ts">
   import type { PopupSettings } from "@skeletonlabs/skeleton";
-  import { Avatar, drawerStore, popup, storePopup } from "@skeletonlabs/skeleton";
-  import { arrow, autoUpdate, computePosition, flip, offset, shift } from "@floating-ui/dom";
+  import { Avatar, drawerStore, popup } from "@skeletonlabs/skeleton";
 
-  storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
 
   const profilePopup: PopupSettings = {
-    event: "focus-click",
+    event: "click",
     target: "profilePopup",
     placement: "bottom",
-    closeQuery: ".listbox-item"
   };
 </script>
 <div

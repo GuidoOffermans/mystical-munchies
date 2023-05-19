@@ -2,13 +2,14 @@
   import "../theme.postcss";
   import "@skeletonlabs/skeleton/styles/skeleton.css";
   import "../app.postcss";
-
-  import { AppShell } from "@skeletonlabs/skeleton";
+  import { AppShell, storePopup } from "@skeletonlabs/skeleton";
+  import { arrow, autoUpdate, computePosition, flip, offset, shift } from "@floating-ui/dom";
 
   import { page } from "$app/stores";
-
   import Header from "$lib/components/Header.svelte";
   import Sidebar from "$lib/components/Sidebar.svelte";
+
+  storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
 </script>
 
 
