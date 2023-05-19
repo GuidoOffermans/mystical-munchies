@@ -1,10 +1,15 @@
 import type { Handle } from '@sveltejs/kit';
 import { redirect } from '@sveltejs/kit';
 import { pb } from '$lib/pocketbase';
+import { building } from '$app/environment';
 
-const publicPaths = ['/login', '/register'];
+const publicPaths = ['/login', '/register', '/'];
 
 export const handle = (async ({ event, resolve }) => {
+	if (building) {
+		return resolve(event); // bailing here allows the 404 page to build
+	}
+	
 	event.locals.pb = pb;
 	event.locals.pb.authStore.loadFromCookie(event.request.headers.get('cookie') || '');
 
