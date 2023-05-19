@@ -1,14 +1,3 @@
-<script lang="ts">
-  import { currentUser } from "$lib/pocketbase";
-  import { redirect } from "@sveltejs/kit";
-
-  // if (!$currentUser) {
-  //   console.log(currentUser);
-  //   console.log("redirecting to login from error.svelte");
-  //   throw redirect(303, "/login");
-  // }
-</script>
-
 <main
   class="grid min-h-full place-items-center bg-surface-100-800-token px-6 py-24 sm:py-32 lg:px-8"
 >
